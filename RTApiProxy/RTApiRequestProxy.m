@@ -63,21 +63,25 @@
     return newServiceID;
 }
 
-#pragma mark - Requests
-#pragma mark Sync
-// sync requests
-// specified requests
+#pragma mark - Image requests
 - (RTNetworkResponse *)syncFetchImage:(NSURL *)imageURL{
     RTServiceType serviceID = RTImageServiceID;
     return [_requester httpGetSync:imageURL service:serviceID];
 }
 
+- (RTRequestID)fetchImage:(NSURL *)imageURL target:(id)target action:(SEL)action {
+    RTServiceType serviceID = RTImageServiceID;
+    return [_requester httpGet:imageURL serivce:serviceID target:target action:action];
+}
+
+
+#pragma mark - Geo requests
 - (RTNetworkResponse *)syncGeoWithLat:(NSString *)lat lng:(NSString *)lng {
     RTServiceType serviceID = RTGeoServiceID;
     id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
     NSString *latlng = [NSString stringWithFormat:@"%@,%@", lat, lng];
     NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", latlng, @"latlng", nil];
-    NSURL *requestURL = [service buildGetURLWithMethod:@"/maps/api/geocode/json?" params:paramsDict];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json?" params:paramsDict];
 
     return [_requester httpGetSync:requestURL service:serviceID];
 }
@@ -87,7 +91,7 @@
     id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
 
     NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", address, @"address", nil];
-    NSURL *requestURL = [service buildGetURLWithMethod:@"/maps/api/geocode/json?" params:paramsDict];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json?" params:paramsDict];
     
 #ifdef DEBUG
     NSLog(@"google geo url: %@", requestURL);
@@ -95,9 +99,30 @@
     return [_requester httpGetSync:requestURL service:serviceID];
 }
 
-// generic requests
+
+- (RTRequestID)geoWithLat:(NSString *)lat lng:(NSString *)lng target:(id)target action:(SEL)action {
+    RTServiceType serviceID = RTGeoServiceID;
+    id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
+    NSString *latlng = [NSString stringWithFormat:@"%@,%@", lat, lng];
+    NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", latlng, @"latlng", nil];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json?" params:paramsDict];
+    
+    return [_requester httpGet:requestURL serivce:serviceID target:target action:action];
+}
+
+- (RTRequestID)geoWithAddress:(NSString *)address target:(id)target action:(SEL)action {
+    RTServiceType serviceID = RTGeoServiceID;
+    id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
+    
+    NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", address, @"address", nil];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json?" params:paramsDict];
+    
+    return [_requester httpGet:requestURL serivce:serviceID target:target action:action];
+}
+
+
+#pragma mark - General requests
 - (RTNetworkResponse *)syncGetWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params {
-    // check method
     if (!methodName)
         return RT_ERROR_REQUESTID;
     
@@ -115,7 +140,6 @@
     return [_requester httpGetSync:requestURL service:serviceID];
 }
 - (RTNetworkResponse *)syncPostWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params {
-    // check method
     if (!methodName)
         return RT_ERROR_REQUESTID;
     
@@ -131,37 +155,8 @@
     return [_requester httpPostSync:requestURL service:serviceID body:params];    
 }
 
-#pragma mark Async
-- (RTRequestID)fetchImage:(NSURL *)imageURL target:(id)target action:(SEL)action {
-    RTServiceType serviceID = RTImageServiceID;
-    return [_requester httpGet:imageURL serivce:serviceID target:target action:action];
-}
 
-
-- (RTRequestID)geoWithLat:(NSString *)lat lng:(NSString *)lng target:(id)target action:(SEL)action {
-    RTServiceType serviceID = RTGeoServiceID;
-    id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
-    NSString *latlng = [NSString stringWithFormat:@"%@,%@", lat, lng];
-    NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", latlng, @"latlng", nil];
-    NSURL *requestURL = [service buildGetURLWithMethod:@"/maps/api/geocode/json?" params:paramsDict];
-    
-    return [_requester httpGet:requestURL serivce:serviceID target:target action:action];
-}
-
-- (RTRequestID)geoWithAddress:(NSString *)address target:(id)target action:(SEL)action {
-    RTServiceType serviceID = RTGeoServiceID;
-    id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
-    
-    NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", address, @"address", nil];
-    NSURL *requestURL = [service buildGetURLWithMethod:@"/maps/api/geocode/json?" params:paramsDict];
-    
-    return [_requester httpGet:requestURL serivce:serviceID target:target action:action];
-}
-
-
-// gerneric requests
 - (RTRequestID)asyncGetWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params target:(id)target action:(SEL)action {
-    // check method
     if (!methodName)
         return RT_ERROR_REQUESTID;
     
@@ -195,7 +190,7 @@
 }
 
 
-#pragma mark Upload
+#pragma mark - Upload file
 - (RTRequestID)asyncPostWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params files:(NSDictionary *)files target:(id)target action:(SEL)action{
     // check method
     if (!methodName)
@@ -228,7 +223,7 @@
 }
 
 
-#pragma mark Cancels
+#pragma mark - Cancel requests
 - (void)cancelRequest:(RTRequestID)requestID {
     [_requester cancelRequest:requestID];
 }
@@ -238,7 +233,7 @@
 }
 
 
-#pragma mark - Check network availiable
+#pragma mark - Network status
 - (BOOL)isInternetAvailiable {
     return [_requester isInternetAvailiable]; 
 }

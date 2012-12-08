@@ -120,7 +120,8 @@
 
 - (void)dispatchResponse:(RTNetworkResponse *)response forElement:(DispatchElement *)element {
     NSString *status = ([response status] != RTNetworkResponseStatusSuccess) ? @"fail" : @"success";
-    NSDictionary *postUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:element.startTime, @"startTime", status, @"status", [[[element request] url] path], @"url", nil];
+    NSDictionary *postUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:element.startTime, @"startTime", status, @"status", [[element request] url], @"url", [NSNumber numberWithUnsignedInt:element.serviceID], @"serviceID",  nil];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:RTApiResponseNotification object:self userInfo:postUserInfo];
     
     RTRequestID requestID = [element requestID];    

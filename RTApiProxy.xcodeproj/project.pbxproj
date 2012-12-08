@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2786974915059D930005EB83 /* RTNetworkResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 2786974715059D930005EB83 /* RTNetworkResponse.h */; };
 		2786974A15059D930005EB83 /* RTNetworkResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2786974815059D930005EB83 /* RTNetworkResponse.m */; };
-		2786974E1505A2C00005EB83 /* RTApiProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2786974D1505A2C00005EB83 /* RTApiProxy.h */; };
 		2791739415045C9B00E86AF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2791739315045C9B00E86AF6 /* Foundation.framework */; };
-		279173C115045DA700E86AF6 /* RTApiRequestProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 279173BF15045DA700E86AF6 /* RTApiRequestProxy.h */; };
 		279173C215045DA700E86AF6 /* RTApiRequestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 279173C015045DA700E86AF6 /* RTApiRequestProxy.m */; };
 		279173C515045DBC00E86AF6 /* RTRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = 279173C315045DBC00E86AF6 /* RTRequester.h */; };
 		279173C615045DBC00E86AF6 /* RTRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 279173C415045DBC00E86AF6 /* RTRequester.m */; };
@@ -40,7 +37,6 @@
 		279174831504869800E86AF6 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 279174811504869800E86AF6 /* Reachability.h */; };
 		279174841504869800E86AF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 279174821504869800E86AF6 /* Reachability.m */; };
 		279174861504874400E86AF6 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279174851504874300E86AF6 /* libxml2.dylib */; };
-		2791749115048E8000E86AF6 /* RTBaseService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2791748F15048E8000E86AF6 /* RTBaseService.h */; };
 		2791749215048E8000E86AF6 /* RTBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2791749015048E8000E86AF6 /* RTBaseService.m */; };
 		279174971504963700E86AF6 /* DispatchElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 279174951504963700E86AF6 /* DispatchElement.h */; };
 		279174981504963700E86AF6 /* DispatchElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 279174961504963700E86AF6 /* DispatchElement.m */; };
@@ -80,12 +76,14 @@
 		574FC2A21672F44B009D4869 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 574FC2861672F44B009D4869 /* SBJsonUTF8Stream.m */; };
 		574FC2A31672F44B009D4869 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 574FC2871672F44B009D4869 /* SBJsonWriter.h */; };
 		574FC2A41672F44B009D4869 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 574FC2881672F44B009D4869 /* SBJsonWriter.m */; };
+		574FC3DC167334AD009D4869 /* RTApiProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 574FC3D8167334AD009D4869 /* RTApiProxy.h */; };
+		574FC3DD167334AD009D4869 /* RTApiRequestProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 574FC3D9167334AD009D4869 /* RTApiRequestProxy.h */; };
+		574FC3DE167334AD009D4869 /* RTBaseService.h in Headers */ = {isa = PBXBuildFile; fileRef = 574FC3DA167334AD009D4869 /* RTBaseService.h */; };
+		574FC3DF167334AD009D4869 /* RTNetworkResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 574FC3DB167334AD009D4869 /* RTNetworkResponse.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2786974715059D930005EB83 /* RTNetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTNetworkResponse.h; sourceTree = "<group>"; };
 		2786974815059D930005EB83 /* RTNetworkResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTNetworkResponse.m; sourceTree = "<group>"; };
-		2786974D1505A2C00005EB83 /* RTApiProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTApiProxy.h; sourceTree = "<group>"; };
 		278697621505DFA00005EB83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		278697641505DFC20005EB83 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2786976C1505E02C0005EB83 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -97,7 +95,6 @@
 		2791739315045C9B00E86AF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2791739715045C9B00E86AF6 /* RTApiProxy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RTApiProxy-Prefix.pch"; sourceTree = "<group>"; };
 		279173A115045C9C00E86AF6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		279173BF15045DA700E86AF6 /* RTApiRequestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTApiRequestProxy.h; sourceTree = "<group>"; };
 		279173C015045DA700E86AF6 /* RTApiRequestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTApiRequestProxy.m; sourceTree = "<group>"; };
 		279173C315045DBC00E86AF6 /* RTRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRequester.h; sourceTree = "<group>"; };
 		279173C415045DBC00E86AF6 /* RTRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRequester.m; sourceTree = "<group>"; };
@@ -126,7 +123,6 @@
 		279174811504869800E86AF6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		279174821504869800E86AF6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		279174851504874300E86AF6 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		2791748F15048E8000E86AF6 /* RTBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTBaseService.h; sourceTree = "<group>"; };
 		2791749015048E8000E86AF6 /* RTBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTBaseService.m; sourceTree = "<group>"; };
 		279174951504963700E86AF6 /* DispatchElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchElement.h; sourceTree = "<group>"; };
 		279174961504963700E86AF6 /* DispatchElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchElement.m; sourceTree = "<group>"; };
@@ -166,6 +162,10 @@
 		574FC2861672F44B009D4869 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		574FC2871672F44B009D4869 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		574FC2881672F44B009D4869 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		574FC3D8167334AD009D4869 /* RTApiProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTApiProxy.h; path = RTApiProxyHeader/RTApiProxy.h; sourceTree = "<group>"; };
+		574FC3D9167334AD009D4869 /* RTApiRequestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTApiRequestProxy.h; path = RTApiProxyHeader/RTApiRequestProxy.h; sourceTree = "<group>"; };
+		574FC3DA167334AD009D4869 /* RTBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTBaseService.h; path = RTApiProxyHeader/RTBaseService.h; sourceTree = "<group>"; };
+		574FC3DB167334AD009D4869 /* RTNetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTNetworkResponse.h; path = RTApiProxyHeader/RTNetworkResponse.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,11 +256,11 @@
 		279173BA15045CF000E86AF6 /* ServiceProtocol */ = {
 			isa = PBXGroup;
 			children = (
+				574FC3DA167334AD009D4869 /* RTBaseService.h */,
 				574FC1961671ED21009D4869 /* RTGeoService.h */,
 				574FC1971671ED21009D4869 /* RTGeoService.m */,
 				574FC1981671ED21009D4869 /* RTImageService.h */,
 				574FC1991671ED21009D4869 /* RTImageService.m */,
-				2791748F15048E8000E86AF6 /* RTBaseService.h */,
 				2791749015048E8000E86AF6 /* RTBaseService.m */,
 			);
 			name = ServiceProtocol;
@@ -277,11 +277,11 @@
 		279173BC15045D1600E86AF6 /* Facade */ = {
 			isa = PBXGroup;
 			children = (
-				279173BF15045DA700E86AF6 /* RTApiRequestProxy.h */,
+				574FC3D8167334AD009D4869 /* RTApiProxy.h */,
+				574FC3D9167334AD009D4869 /* RTApiRequestProxy.h */,
+				574FC3DB167334AD009D4869 /* RTNetworkResponse.h */,
 				279173C015045DA700E86AF6 /* RTApiRequestProxy.m */,
-				2786974715059D930005EB83 /* RTNetworkResponse.h */,
 				2786974815059D930005EB83 /* RTNetworkResponse.m */,
-				2786974D1505A2C00005EB83 /* RTApiProxy.h */,
 			);
 			name = Facade;
 			sourceTree = "<group>";
@@ -381,7 +381,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				279173C115045DA700E86AF6 /* RTApiRequestProxy.h in Headers */,
 				279173C515045DBC00E86AF6 /* RTRequester.h in Headers */,
 				279173C915045DCE00E86AF6 /* RTDispatcher.h in Headers */,
 				2791742B1504641F00E86AF6 /* ASIAuthenticationDialog.h in Headers */,
@@ -397,10 +396,7 @@
 				2791743C1504641F00E86AF6 /* ASINetworkQueue.h in Headers */,
 				2791743E1504641F00E86AF6 /* ASIProgressDelegate.h in Headers */,
 				279174831504869800E86AF6 /* Reachability.h in Headers */,
-				2791749115048E8000E86AF6 /* RTBaseService.h in Headers */,
 				279174971504963700E86AF6 /* DispatchElement.h in Headers */,
-				2786974915059D930005EB83 /* RTNetworkResponse.h in Headers */,
-				2786974E1505A2C00005EB83 /* RTApiProxy.h in Headers */,
 				27998CBB15070E14004FEF06 /* NSString+MD5Addition.h in Headers */,
 				27998CBD15070E14004FEF06 /* UIDevice+IdentifierAddition.h in Headers */,
 				574FC19A1671ED21009D4869 /* RTGeoService.h in Headers */,
@@ -420,6 +416,10 @@
 				574FC29F1672F44B009D4869 /* SBJsonTokeniser.h in Headers */,
 				574FC2A11672F44B009D4869 /* SBJsonUTF8Stream.h in Headers */,
 				574FC2A31672F44B009D4869 /* SBJsonWriter.h in Headers */,
+				574FC3DC167334AD009D4869 /* RTApiProxy.h in Headers */,
+				574FC3DD167334AD009D4869 /* RTApiRequestProxy.h in Headers */,
+				574FC3DE167334AD009D4869 /* RTBaseService.h in Headers */,
+				574FC3DF167334AD009D4869 /* RTNetworkResponse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

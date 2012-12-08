@@ -18,33 +18,31 @@
 
 - (RTServiceType)registerService:(RTBaseService *)service;
 
-// image
+#pragma mark - Image request
 - (RTNetworkResponse *)syncFetchImage:(NSURL *)imageURL;
 - (RTRequestID)fetchImage:(NSURL *)imageURL target:(id)target action:(SEL)action;
 
-// geo
-- (RTRequestID)geoWithLat:(NSString *)lat lng:(NSString *)lng target:(id)target action:(SEL)action;
-- (RTRequestID)geoWithAddress:(NSString *)address target:(id)target action:(SEL)action;
+#pragma mark - Geo request
 - (RTNetworkResponse *)syncGeoWithLat:(NSString *)lat lng:(NSString *)lng;
+- (RTRequestID)geoWithLat:(NSString *)lat lng:(NSString *)lng target:(id)target action:(SEL)action;
 - (RTNetworkResponse *)syncGeoWithAddress:(NSString *)address;
+- (RTRequestID)geoWithAddress:(NSString *)address target:(id)target action:(SEL)action;
 
-
-// generic requests: sync/async http get/post
+#pragma mark - Generic request
 - (RTRequestID)asyncGetWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params target:(id)target action:(SEL)action;
 - (RTRequestID)asyncPostWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params target:(id)target action:(SEL)action;
 - (RTNetworkResponse *)syncGetWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params;
 - (RTNetworkResponse *)syncPostWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params;
 
-
-//upload file
+#pragma mark - File request
 - (RTRequestID)asyncPostWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params files:(NSDictionary *)files target:(id)target action:(SEL)action;
 - (RTNetworkResponse *)syncUploadWithServiceID:(RTServiceType) serviceID url:(NSURL *)url files:(NSDictionary *)files;
 
-// cancels
+#pragma mark - Cancel request
 - (void)cancelRequest:(RTRequestID)requestID;
 - (void)cancelRequestsWithTarget:(id)target;
 
-// network status
+#pragma mark - Network status
 - (BOOL)isInternetAvailiable;
 - (BOOL)isWiFiAvailiable;
 - (NSString *)getNetworkStatus;
