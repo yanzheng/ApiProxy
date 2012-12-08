@@ -8,7 +8,7 @@
 
 #import "RTBaseService.h"
 #import "UIDevice+IdentifierAddition.h"
-#import "NSString+RTApiProxy.h"
+#import "NSString+MD5Addition.h"
 #import "SBJson.h"
 
 @interface RTBaseService() {

@@ -10,6 +10,7 @@
 
 @interface NSString(MD5Addition)
 
+- (NSString *) md5;
 - (NSString *) stringFromMD5;
 
 @end
