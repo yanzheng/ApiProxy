@@ -11,6 +11,7 @@
 #import "RTDispatcher.h"
 #import "RTImageService.h"
 #import "RTGeoService.h"
+#import "RTDituGeoService.h"
 
 // private methods
 @interface RTApiRequestProxy () {
@@ -39,10 +40,12 @@
         _serviceDict = [[RTDispatcher sharedInstance] serviceDict];
         
         RTGeoService *geoService = [[[RTGeoService alloc] init] autorelease];
+        RTDituGeoService *dituGeoService = [[[RTDituGeoService alloc] init] autorelease];
         RTImageService *imageService = [[[RTImageService alloc] init] autorelease];
         
         [self registerService:geoService];  // geo serviceID is 1
-        [self registerService:imageService];    // image serviceID is 2
+        [self registerService:dituGeoService];
+        [self registerService:imageService];    // image serviceID is 3
     }
     
     return self;
@@ -81,7 +84,7 @@
     id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
     NSString *latlng = [NSString stringWithFormat:@"%@,%@", lat, lng];
     NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", latlng, @"latlng", nil];
-    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json?" params:paramsDict];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json" params:paramsDict];
 
     return [_requester httpGetSync:requestURL service:serviceID];
 }
@@ -91,7 +94,7 @@
     id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
 
     NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", address, @"address", nil];
-    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json?" params:paramsDict];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json" params:paramsDict];
     
 #ifdef DEBUG
     NSLog(@"google geo url: %@", requestURL);
@@ -105,7 +108,7 @@
     id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
     NSString *latlng = [NSString stringWithFormat:@"%@,%@", lat, lng];
     NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", latlng, @"latlng", nil];
-    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json?" params:paramsDict];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json" params:paramsDict];
     
     return [_requester httpGet:requestURL serivce:serviceID target:target action:action];
 }
@@ -115,9 +118,41 @@
     id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
     
     NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"true", @"sensor", @"zh-CN", @"language", address, @"address", nil];
-    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json?" params:paramsDict];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/api/geocode/json" params:paramsDict];
+    
+#ifdef DEBUG
+    NSLog(@"google geo url: %@", requestURL);
+#endif
     
     return [_requester httpGet:requestURL serivce:serviceID target:target action:action];
+}
+
+#pragma mark - Ditu geo
+- (RTRequestID)dituGeoWithAddress:(NSString *)address target:(id)target action:(SEL)action {
+    RTServiceType serviceID = RTDituGeoServiceID;
+    id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
+    
+    NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"json", @"output", @"utf-8", @"oe", address, @"q", nil];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/geo" params:paramsDict];
+
+#ifdef DEBUG
+    NSLog(@"google geo url: %@", requestURL);
+#endif
+
+    return [_requester httpGet:requestURL serivce:serviceID target:target action:action];
+}
+
+- (RTNetworkResponse *)syncDituGeoWithAddress:(NSString *)address {
+    RTServiceType serviceID = RTDituGeoServiceID;
+    id service = [_serviceDict objectForKey:[NSNumber numberWithInt:serviceID]];
+    
+    NSDictionary *paramsDict = [NSDictionary dictionaryWithObjectsAndKeys:@"json", @"output", @"utf-8", @"oe", address, @"q", nil];
+    NSURL *requestURL = [service buildGetURLWithMethod:@"maps/geo" params:paramsDict];
+    
+#ifdef DEBUG
+    NSLog(@"google geo url: %@", requestURL);
+#endif
+    return [_requester httpGetSync:requestURL service:serviceID];
 }
 
 

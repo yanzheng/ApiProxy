@@ -11,7 +11,8 @@
 #define RTApiResponseNotification @"RTApiResonseNotification"
 
 #define RTGeoServiceID 1
-#define RTImageServiceID 2
+#define RTDituGeoServiceID 2
+#define RTImageServiceID 3
 
 typedef unsigned int RTServiceType;
 typedef unsigned int RTRequestID;

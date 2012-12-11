@@ -80,6 +80,8 @@
 		574FC3DD167334AD009D4869 /* RTApiRequestProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 574FC3D9167334AD009D4869 /* RTApiRequestProxy.h */; };
 		574FC3DE167334AD009D4869 /* RTBaseService.h in Headers */ = {isa = PBXBuildFile; fileRef = 574FC3DA167334AD009D4869 /* RTBaseService.h */; };
 		574FC3DF167334AD009D4869 /* RTNetworkResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 574FC3DB167334AD009D4869 /* RTNetworkResponse.h */; };
+		57AA4C251676F8E100326F7C /* RTDituGeoService.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AA4C231676F8E100326F7C /* RTDituGeoService.h */; };
+		57AA4C261676F8E100326F7C /* RTDituGeoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AA4C241676F8E100326F7C /* RTDituGeoService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +168,8 @@
 		574FC3D9167334AD009D4869 /* RTApiRequestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTApiRequestProxy.h; path = RTApiProxyHeader/RTApiRequestProxy.h; sourceTree = "<group>"; };
 		574FC3DA167334AD009D4869 /* RTBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTBaseService.h; path = RTApiProxyHeader/RTBaseService.h; sourceTree = "<group>"; };
 		574FC3DB167334AD009D4869 /* RTNetworkResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTNetworkResponse.h; path = RTApiProxyHeader/RTNetworkResponse.h; sourceTree = "<group>"; };
+		57AA4C231676F8E100326F7C /* RTDituGeoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDituGeoService.h; sourceTree = "<group>"; };
+		57AA4C241676F8E100326F7C /* RTDituGeoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDituGeoService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +266,8 @@
 				574FC1981671ED21009D4869 /* RTImageService.h */,
 				574FC1991671ED21009D4869 /* RTImageService.m */,
 				2791749015048E8000E86AF6 /* RTBaseService.m */,
+				57AA4C231676F8E100326F7C /* RTDituGeoService.h */,
+				57AA4C241676F8E100326F7C /* RTDituGeoService.m */,
 			);
 			name = ServiceProtocol;
 			sourceTree = "<group>";
@@ -279,9 +285,9 @@
 			children = (
 				574FC3D8167334AD009D4869 /* RTApiProxy.h */,
 				574FC3D9167334AD009D4869 /* RTApiRequestProxy.h */,
+				2786974815059D930005EB83 /* RTNetworkResponse.m */,
 				574FC3DB167334AD009D4869 /* RTNetworkResponse.h */,
 				279173C015045DA700E86AF6 /* RTApiRequestProxy.m */,
-				2786974815059D930005EB83 /* RTNetworkResponse.m */,
 			);
 			name = Facade;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				574FC3DD167334AD009D4869 /* RTApiRequestProxy.h in Headers */,
 				574FC3DE167334AD009D4869 /* RTBaseService.h in Headers */,
 				574FC3DF167334AD009D4869 /* RTNetworkResponse.h in Headers */,
+				57AA4C251676F8E100326F7C /* RTDituGeoService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +512,7 @@
 				574FC2A01672F44B009D4869 /* SBJsonTokeniser.m in Sources */,
 				574FC2A21672F44B009D4869 /* SBJsonUTF8Stream.m in Sources */,
 				574FC2A41672F44B009D4869 /* SBJsonWriter.m in Sources */,
+				57AA4C261676F8E100326F7C /* RTDituGeoService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

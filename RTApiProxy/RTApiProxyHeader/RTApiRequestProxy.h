@@ -27,6 +27,8 @@
 - (RTRequestID)geoWithLat:(NSString *)lat lng:(NSString *)lng target:(id)target action:(SEL)action;
 - (RTNetworkResponse *)syncGeoWithAddress:(NSString *)address;
 - (RTRequestID)geoWithAddress:(NSString *)address target:(id)target action:(SEL)action;
+- (RTRequestID)dituGeoWithAddress:(NSString *)address target:(id)target action:(SEL)action;
+- (RTNetworkResponse *)syncDituGeoWithAddress:(NSString *)address;
 
 #pragma mark - Generic request
 - (RTRequestID)asyncGetWithServiceID:(RTServiceType)serviceID methodName:(NSString *)methodName params:(NSDictionary *)params target:(id)target action:(SEL)action;
