@@ -284,9 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				574FC3D8167334AD009D4869 /* RTApiProxy.h */,
-				574FC3D9167334AD009D4869 /* RTApiRequestProxy.h */,
 				2786974815059D930005EB83 /* RTNetworkResponse.m */,
 				574FC3DB167334AD009D4869 /* RTNetworkResponse.h */,
+				574FC3D9167334AD009D4869 /* RTApiRequestProxy.h */,
 				279173C015045DA700E86AF6 /* RTApiRequestProxy.m */,
 			);
 			name = Facade;
