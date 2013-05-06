@@ -102,7 +102,7 @@
 //    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
 //        return [[self identifierForVendor] UUIDString];
 //    } else {
-        return [self uniqueIdentifier];
+        return [self uniqueGlobalDeviceIdentifier];
 //    }
 }
 
